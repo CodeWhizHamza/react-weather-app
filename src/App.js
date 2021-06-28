@@ -22,7 +22,7 @@ function App() {
     return weatherData ? weatherContainer : loadingIcon
   }
 
-  return <>{renderData()}</>
+  return renderData()
 }
 
 export default App
