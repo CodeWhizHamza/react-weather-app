@@ -15,7 +15,9 @@ export default function WeatherCardHeader() {
       <h1 className="weather__temp">
         {getTemperatureInCelsius(weather.temp)}&deg;C
       </h1>
-      <p className="weather__desc">{weather.description}</p>
+      <p className="weather__desc">
+        {weather.description} - {weather.city}
+      </p>
       <svg className="weather__icon" alt="Icon">
         <use xlinkHref={weatherIcon}></use>
       </svg>

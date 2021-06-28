@@ -19,7 +19,6 @@ function App() {
         <Weather />
       </WeatherContext.Provider>
     )
-
     return weatherData ? weatherContainer : loadingIcon
   }
 
