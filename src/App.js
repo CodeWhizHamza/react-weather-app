@@ -11,6 +11,7 @@ function App() {
     const loadingIcon = (
       <div className="loading">
         <div className="lds-dual-ring"></div>
+        <p className="loading__msg">Getting your weather data from API</p>
       </div>
     )
     const weatherContainer = (
