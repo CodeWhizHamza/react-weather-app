@@ -5,16 +5,27 @@ export default function useFetchWeather() {
   const [weatherData, setWeatherData] = useState(null)
   const [fetchedCity, setFetchedCity] = useState(null)
 
-  const weatherApiKey = '79fb33b1249bad0870bf35a0b8cf9456'
-  const locationApiKey = '741c861174c041'
+  const {
+    REACT_APP_WEATHER_API_KEY: WEATHER_API_KEY,
+    REACT_APP_LOCATION_API_KEY: LOCATION_API_KEY,
+    REACT_APP_WEATHER_API_URL: WEATHER_API_URL,
+    REACT_APP_LOCATION_API_URL: LOCATION_API_URL,
+  } = process.env
 
-  const locationApiUrl = `https://ipinfo.io/json?token=${locationApiKey}`
+  const locationApiUrl = `${LOCATION_API_URL}?token=${LOCATION_API_KEY}`
+
+  console.log(
+    WEATHER_API_URL,
+    WEATHER_API_KEY,
+    LOCATION_API_URL,
+    LOCATION_API_KEY,
+  )
 
   const fetchLocation = async url => {
     const res = await fetch(url)
     const { city } = await res.json()
 
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&mode=json`
+    const apiUrl = `${WEATHER_API_URL}?q=${city}&appid=${WEATHER_API_KEY}&mode=json`
 
     setFetchedCity(city)
     setWeatherApiUrl(apiUrl)
